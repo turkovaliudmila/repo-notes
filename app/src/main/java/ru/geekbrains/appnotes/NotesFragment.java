@@ -1,5 +1,6 @@
 package ru.geekbrains.appnotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -41,7 +42,21 @@ public class NotesFragment extends Fragment {
             tv.setText(nameNote);
             tv.setTextSize(30);
             layoutView.addView(tv);
+            final int fi = i;
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDetailsNote(fi);
+                }
+            });
         }
+     }
+
+     private void showDetailsNote(int index) {
+         Intent intent = new Intent();
+         intent.setClass(getActivity(), DetailsActivity.class);
+         intent.putExtra(DetailsNoteFragment.ARG_INDEX, index);
+         startActivity(intent);
      }
 
 }

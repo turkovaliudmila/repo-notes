@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class DetailsNoteFragment extends Fragment {
 
-    private static final String ARG_INDEX = "index";
+    public static final String ARG_INDEX = "index";
     private int index;
 
     public DetailsNoteFragment() {
