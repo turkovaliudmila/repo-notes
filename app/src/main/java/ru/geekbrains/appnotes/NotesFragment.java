@@ -82,7 +82,7 @@ public class NotesFragment extends Fragment {
 
         // добавляем фрагмент
         DetailsNoteFragment fragment= new DetailsNoteFragment();
-        fragmentTransaction.add(R.id.details_container, detailsFragment);
+        fragmentTransaction.replace(R.id.details_container, detailsFragment);
         fragmentTransaction.commit();
     }
 

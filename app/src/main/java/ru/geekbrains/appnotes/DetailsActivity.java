@@ -31,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             // добавляем фрагмент
             DetailsNoteFragment fragment= new DetailsNoteFragment();
-            fragmentTransaction.add(R.id.fragment_container, detailsFragment);
+            fragmentTransaction.replace(R.id.fragment_container, detailsFragment);
             fragmentTransaction.commit();
         }
     }
