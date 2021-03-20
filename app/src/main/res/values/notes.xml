@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notename">
+        <item>Покупки</item>
+        <item>Совещание</item>
+        <item>Покупки-2</item>
+    </string-array>
+    <string-array name="notedescription">
+        <item>Текст заметки покупки</item>
+        <item>Текст заметки совещание</item>
+        <item>Текст заметки покупки-2</item>
+    </string-array>
+    <string-array name="notedate">
+        <item>11-03-2021</item>
+        <item>02-02-2021</item>
+        <item>17-03-2021</item>
+    </string-array>
+</resources>
