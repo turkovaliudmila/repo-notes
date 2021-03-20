@@ -5,12 +5,12 @@ import java.util.Date;
 public class Note {
     private String name;
     private String description;
-    private Date dateCreation;
+    private String dateCreation;
 
-    public Note(String name, String description) {
+    public Note(String name, String description, String dateCreation) {
         this.name = name;
         this.description = description;
-        this.dateCreation = new Date();
+        this.dateCreation = dateCreation;
     }
 
     public String getName() {
@@ -29,11 +29,11 @@ public class Note {
         this.description = description;
     }
 
-    public Date getDateCreation() {
+    public String getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(Date dateCreation) {
+    public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
     }
 }
