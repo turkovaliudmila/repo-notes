@@ -8,5 +8,4 @@
         android:id="@+id/aboutAppSideMenu"
         android:orderInCategory="4"
         android:title="@string/title_about_app" />
-
 </menu>
