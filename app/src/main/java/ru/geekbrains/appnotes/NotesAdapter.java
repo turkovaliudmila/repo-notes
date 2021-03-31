@@ -6,13 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> {
     private NotesSource dataSource;
+    private final Fragment fragment;
 
-    public NotesAdapter(NotesSource dataSource) {
+    public NotesAdapter(NotesSource dataSource, Fragment fragment) {
         this.dataSource = dataSource;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -45,12 +48,20 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             description = itemView.findViewById(R.id.noteDescription);
             dateCreation = itemView.findViewById(R.id.noteDateCreation);
 
+            registerContextMenu(itemView);
+
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                 }
             });
+        }
+
+        private void registerContextMenu(@NonNull View itemView) {
+            if (fragment != null){
+                fragment.registerForContextMenu(itemView);
+            }
         }
 
         public void setData(Note note){
