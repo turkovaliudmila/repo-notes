@@ -32,4 +32,8 @@ public class NotesSource {
     public int size() {
         return SIZE_ARRAY;
     }
+
+    public void deleteNoteData(int position) {
+        dataSource.remove(position);
+    }
 }
