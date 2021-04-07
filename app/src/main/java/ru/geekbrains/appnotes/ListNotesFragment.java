@@ -83,4 +83,15 @@ public class ListNotesFragment extends Fragment {
         return super.onContextItemSelected(item);
     }
 
+    public NotesSource getListNotes() {
+        return data;
+    }
+
+    public NotesAdapter getAdapter() {
+        return adapter;
+    }
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
 }
