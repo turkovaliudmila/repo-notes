@@ -15,4 +15,5 @@
     <string name="delete">Delete</string>
     <string name="question_delete_note">Would you like to delete a note?</string>
     <string name="button_yes">Yes</string>
+    <string name="button_edit">OK</string>
 </resources>
