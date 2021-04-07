@@ -64,6 +64,20 @@ public class ListNotesFragment extends Fragment {
                 // Do some stuff
                 return true;
             case R.id.action_delete:
+                int position = adapter.getMenuPosition();
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+                builder.setTitle(R.string.title_delete_note);
+                builder.setMessage(R.string.question_delete_note);
+                builder.setCancelable(false);
+                builder.setPositiveButton(R.string.button_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        data.deleteNoteData(position);
+                        adapter.notifyItemRemoved(position);
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
         }
         return super.onContextItemSelected(item);
