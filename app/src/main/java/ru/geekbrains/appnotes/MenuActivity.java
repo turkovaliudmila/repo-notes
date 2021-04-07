@@ -1,5 +1,6 @@
 package ru.geekbrains.appnotes;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -68,7 +70,7 @@ public class MenuActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.addNote:
-                showToast("Select add note");
+                addFragment(EditNoteFragment.newInstance(0, new Note("Name", "", "")));
                 return true;
             case R.id.deleteNote:
                 showToast("Select delete note");
@@ -102,7 +104,7 @@ public class MenuActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
 
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.replace(R.id.fragment_container2, fragment);
         fragmentTransaction.commit();
     }
 }

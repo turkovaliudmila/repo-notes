@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -55,6 +56,15 @@ public class EditNoteFragment extends Fragment {
         editName.setText(note.getName());
         editDesc.setText(note.getDescription());
         editDate.setText(note.getDateCreation());
+
+        Button btnOk = view.findViewById(R.id.button_ok);
+
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

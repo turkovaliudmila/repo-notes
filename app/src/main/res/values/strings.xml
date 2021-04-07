@@ -13,4 +13,6 @@
     <string name="ok">OK</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="question_delete_note">Would you like to delete a note?</string>
+    <string name="button_yes">Yes</string>
 </resources>

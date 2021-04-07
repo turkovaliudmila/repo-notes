@@ -1,5 +1,6 @@
 package ru.geekbrains.appnotes;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,10 @@ public class ListNotesFragment extends Fragment {
     private RecyclerView recyclerView;
 
     public static ListNotesFragment newInstance() {
+        return new ListNotesFragment();
+    }
+
+    public static ListNotesFragment newInstance(Note note) {
         return new ListNotesFragment();
     }
 
@@ -58,9 +64,6 @@ public class ListNotesFragment extends Fragment {
                 // Do some stuff
                 return true;
             case R.id.action_delete:
-                int position = adapter.getMenuPosition();
-                data.deleteNoteData(position);
-                adapter.notifyItemRemoved(position);
                 return true;
         }
         return super.onContextItemSelected(item);
