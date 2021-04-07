@@ -36,4 +36,8 @@ public class NotesSource {
     public void deleteNoteData(int position) {
         dataSource.remove(position);
     }
+
+    public void addNoteData(Note note) {
+        dataSource.add(note);
+    }
 }
