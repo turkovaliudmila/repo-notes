@@ -14,12 +14,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class MenuActivity extends AppCompatActivity {
+    private ListNotesFragment listNotesFragment;
+    private NotesAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,10 @@ public class MenuActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initDrawer(toolbar);
-        addFragment(ListNotesFragment.newInstance());
+        listNotesFragment = ListNotesFragment.newInstance();
+        adapter = listNotesFragment.getAdapter();
+        recyclerView = listNotesFragment.getRecyclerView();
+        addFragment(listNotesFragment);
     }
 
     private void initDrawer(Toolbar toolbar) {
@@ -70,7 +78,9 @@ public class MenuActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.addNote:
-                addFragment(EditNoteFragment.newInstance(0, new Note("Name", "", "")));
+                //addFragment(EditNoteFragment.newInstance(0, new Note("Name", "", "")));
+                DialogFragment dlg = new DialogEditNote();
+                dlg.show(getSupportFragmentManager(), "transactionTag");
                 return true;
             case R.id.deleteNote:
                 showToast("Select delete note");
@@ -106,5 +116,11 @@ public class MenuActivity extends AppCompatActivity {
 
         fragmentTransaction.replace(R.id.fragment_container2, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void onDialogResult(Note note) {
+        listNotesFragment.getListNotes().addNoteData(note);
+        adapter.notifyItemInserted(listNotesFragment.getListNotes().size()-1);
+        recyclerView.scrollToPosition(listNotesFragment.getListNotes().size()-1);
     }
 }
